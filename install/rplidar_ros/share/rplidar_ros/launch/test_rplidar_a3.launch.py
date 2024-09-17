@@ -11,11 +11,17 @@ def generate_launch_description():
             output='screen',
             parameters=[{
                 'serial_port': '/dev/ttyUSB0',
-                'serial_baudrate': 115200,  # A1 / A2
-                # 'serial_baudrate': 256000, # A3
-                'frame_id': 'odom',
+                'serial_baudrate': 115200,
+                'frame_id': 'laser',
                 'inverted': False,
                 'angle_compensate': True,
+                'scan_mode': 'Sensitivity',
             }],
+        ),
+        Node(
+            name='rplidarNodeClient',
+            package='rplidar_ros',
+            executable='rplidarNodeClient',
+            output='screen',
         ),
     ])

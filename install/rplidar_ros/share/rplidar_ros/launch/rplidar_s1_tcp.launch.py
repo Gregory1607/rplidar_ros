@@ -10,12 +10,12 @@ def generate_launch_description():
             executable='rplidar_composition',
             output='screen',
             parameters=[{
-                'serial_port': '/dev/ttyUSB0',
-                'serial_baudrate': 115200,  # A1 / A2
-                # 'serial_baudrate': 256000, # A3
-                'frame_id': 'odom',
+                'channel_type': 'tcp',
+                'tcp_ip': '192.168.0.7',
+                'tcp_port': 20108,
+                'frame_id': 'laser',
                 'inverted': False,
                 'angle_compensate': True,
-            }],
+            }]
         ),
     ])
